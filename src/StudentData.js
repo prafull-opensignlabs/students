@@ -156,6 +156,10 @@ export const StudentData = () => {
                     </p>
                     <div className="flex_row">
                     {/* Student update button */}
+                    {item.get ('done') !==false && (
+                      <Button onClick ={()=> updateStudent(item.id, false)}
+                      className= "update_btn">Deactivate</Button>
+                    )}
                     {item.get("done") !== true && (
                       <Button
                         onClick={() => updateStudent(item.id, true)}
