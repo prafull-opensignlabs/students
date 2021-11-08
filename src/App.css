@@ -1,5 +1,14 @@
 
+.container {
+  width: 100%;
+  margin: auto;
+  padding: 0px 0;
+}
 
+.wrapper {
+  width: "90%";
+  align-self: "center";
+}
 body {
   background-color: whitesmoke;
   color: black;
@@ -10,97 +19,125 @@ body {
 
 .header {
   align-items: center;
-  padding: 25px 0;
+  padding: 2px 0;
   background-color: #20d4ec;
-  margin-left: 10px;
+  /* update css */
+  width: 100%;
+  margin: auto;
+  padding: 0px 0;
 }
 
 .header_logo {
-  height: 55px;
+  width: 100%;
+  height: 35px;
   margin-bottom: 20px;
   object-fit: contain;
+  /* update css */
+  width: 100%;
+  margin: auto;
+  padding: 0px 0;
 }
 .list_heading {
   font-weight: bold;
-  background-color:deepskyblue;
+  background-color: deepskyblue;
   margin-top: 10px;
-  padding: 20px 10px;
+  padding: 15px;
   font-size: 30px;
-  margin-left: 10px;
 }
 
-input {
+/* @media (min-width:320px) {
+
+
+.Name,.Email,.Age{
+  width:100%;
+}
+} */
+input{
   width: 100%;
   padding: 12px 20px;
+  margin-top: 2px;
   margin: 8px 8px;
   box-sizing: border-box;
+  border-style: solid;
+  transition: border 0.3 linear;
+  font: 15px arial;
+  
 }
 
 .add_btn {
   background-color: #4caf50; /* Green */
-  border:double;
+  border: double;
   color: white;
-  padding: 10px 32px;
+  padding: 11px 32px;
   text-align: center;
   font-size: 16px;
   float: left;
   margin-left: 10px;
-  cursor: pointer
+  cursor: pointer;
 }
 
-.refresh_btn{
+.refresh_btn {
   background-color: dodgerblue;
   font-size: 16px;
   color: black;
   text-align: center;
   font-weight: bold;
   padding: 10px 15px;
-  margin-left: 10px; 
-  cursor: pointer 
+  margin-left: 10px;
+  cursor: pointer;
 }
 
-.remove_btn{
+.remove_btn {
   background-color: rgb(241, 19, 19);
   font-size: 16px;
   color: white;
-  margin-left: 1210px;
-  justify-items:left;
+  justify-items: left;
   text-align: center;
   padding: 10px 15px;
   font-size: 16px;
   cursor: pointer;
 }
-
-.update_btn{
-  background-color:greenyellow;
+.update_btn1 {
+  background-color: greenyellow;
   font-size: 16px;
-  color: black; 
+  color: black;
   text-align: center;
   padding: 10px 15px;
   float: right;
   font-size: 16px;
   cursor: pointer;
 }
-.student_list{
+.update_btn2 {
+  background-color: greenyellow;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 10px 25px;
+  float: right;
+  font-size: 16px;
+  cursor: pointer;
+}
+.student_list {
   color: rgba(0, 0, 0, 0.3);
   font-size: 15px;
-  font-weight: bold;
+  font-family: sans-serif;
   text-align: left;
 }
 
 .student_text {
-  color:black;
+  color: black;
   font-size: 20px;
-  font-weight: bold;
   text-align: left;
-} 
+  font-family: sans-serif;
+}
 
 .student_text_done {
   color: black(0, 0, 0, 0.3);
   font-size: 20px;
-  font-weight: bold;
-  text-align: left;;
-} 
+  text-align: left;
+  font-family: sans-serif;
+
+}
 
 .flex_row {
   display: flex;
@@ -129,11 +166,7 @@ input {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;

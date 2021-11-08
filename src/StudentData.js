@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import "./App.css";
-import { Button, Input, List } from "antd";
+import {Form, Button, Input, List } from "antd";
 import logo from "./images/NXG_logo.png";
 
 const PARSE_APPLICATIION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
@@ -95,44 +95,47 @@ export const StudentData = () => {
           className="header_logo"
           src={logo}
           alt="NXGlabs_logo"
-          style={{ width: "300px", height: "118px" }}
+          style={{ width: "200px", height: "118px" }}
         />
       </div>
       <div className="container">
-      <h2 className="list_heading" >Student Data</h2>
+        <h2 className="list_heading">Student Data</h2>
         <div className="flex_between">
-        
-        {/* student read (refresh) button */}
-        <Button onClick={readStudents} className="refresh_btn">
-          Refresh
-        </Button>
+          {/* student read (refresh) button */}
+          <Button onClick={readStudents} className="refresh_btn">
+            Refresh
+          </Button>
         </div>
-        <div className="new_student_wrapper flex_between">
-        {/* Student create text input */}
-        
+        <div className="form">
+          {/* Student create text input */}
+          {/* <Form > */}
           <Input
             value={newStudentTitle}
+            className="Name"
             onChange={(event) => setNewStudentTitle(event.target.value)}
             placeholder="Student Name"
             size="large"
           />
           <Input
+            className="Email"
             value={newStudentEmail}
             onChange={(event) => setNewStudentEmail(event.target.value)}
             placeholder="Student Email"
             size="large"
           />
           <Input
+            className="Age"
             value={newStudentAge}
             onChange={(event) => setNewStudentAge(event.target.value)}
             placeholder="Student Age"
             size="large"
-          />  
-        {/* Student create button */}
-        <Button onClick={createStudent} className="add_btn">
-          Add
-        </Button>
-
+          />
+          
+          {/* Student create button */}
+          <Button onClick={createStudent} className="add_btn">
+            Add
+          </Button><br/><br/>
+          {/* </Form> */}
         </div>
         <div>
           {/* Student read results list */}
@@ -142,7 +145,7 @@ export const StudentData = () => {
               <List
                 dataSource={readResults}
                 renderItem={(item) => (
-                  <List.Item className="student_List">
+                  <List className="student_List">
                     <p
                       className={
                         item.get("done") === true
@@ -155,28 +158,33 @@ export const StudentData = () => {
                       Age: {item.get("Age")}
                     </p>
                     <div className="flex_row">
-                    {/* Student update button */}
-                    {item.get ('done') !==false && (
-                      <Button onClick ={()=> updateStudent(item.id, false)}
-                      className= "update_btn">Deactivate</Button>
-                    )}
-                    {item.get("done") !== true && (
+                      {/* Student update button */}
+                      {item.get("done") !== false && (
+                        <Button
+                          onClick={() => updateStudent(item.id, false)}
+                          className="update_btn1"
+                        >
+                          Deactivate
+                        </Button>
+                      )}
+                      {item.get("done") !== true && (
+                        <Button
+                          onClick={() => updateStudent(item.id, true)}
+                          className="update_btn2"
+                        >
+                          Activate
+                        </Button>
+                      )}
+                      {/* student delete button */}
                       <Button
-                        onClick={() => updateStudent(item.id, true)}
-                        className="update_btn"
+                        onClick={() => deleteStudent(item.id)}
+                        className="remove_btn"
                       >
-                        Activate
+                        Delete
                       </Button>
-                    )}
-                    {/* student delete button */}
-                    <Button
-                      onClick={() => deleteStudent(item.id)}
-                      className="remove_btn"
-                    >
-                      Delete
-                    </Button>
-                    </div>  <hr/>
-                  </List.Item>
+                    </div>{" "}
+                    <hr />
+                  </List>
                 )}
               />
             )}
