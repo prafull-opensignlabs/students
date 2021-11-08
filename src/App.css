@@ -1,18 +1,18 @@
 
-.container {
+.container-sm{
   width: 100%;
   margin: auto;
   padding: 0px 0;
 }
 
 .wrapper {
-  width: "90%";
+  width: 90%;
   align-self: "center";
 }
 body {
   background-color: whitesmoke;
   color: black;
-  padding: 40px;
+  /* padding: 40px; */
   font-family: Arial;
   text-align: center;
 }
@@ -37,21 +37,62 @@ body {
   margin: auto;
   padding: 0px 0;
 }
+
+.flex_row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex_between {
+  display: flex;
+  align-items: center;
+  /* justify-content:space-around; */
+
+}
 .list_heading {
   font-weight: bold;
   background-color: deepskyblue;
   margin-top: 10px;
   padding: 15px;
   font-size: 30px;
+  width: 100%;
 }
 
-/* @media (min-width:320px) {
 
-
-.Name,.Email,.Age{
-  width:100%;
+.student_list {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 15px;
+  font-family: sans-serif;
+  text-align: left;
 }
-} */
+
+.student_text {
+  color: black;
+  font-size: 20px;
+  text-align: left;
+  font-family: sans-serif;
+
+}
+
+.student_text_done {
+  color: black(0, 0, 0, 0.3);
+  font-size: 20px;
+  text-align: left;
+  font-family: sans-serif;
+  
+}
+
+.new_student_wrapper {
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.new_student_wrapper > input {
+  margin-right: 20px;
+}
+
+
+
 input{
   width: 100%;
   padding: 12px 20px;
@@ -87,11 +128,11 @@ input{
   cursor: pointer;
 }
 
+
 .remove_btn {
   background-color: rgb(241, 19, 19);
   font-size: 16px;
   color: white;
-  justify-items: left;
   text-align: center;
   padding: 10px 15px;
   font-size: 16px;
@@ -103,9 +144,9 @@ input{
   color: black;
   text-align: center;
   padding: 10px 15px;
-  float: right;
   font-size: 16px;
   cursor: pointer;
+  
 }
 .update_btn2 {
   background-color: greenyellow;
@@ -113,50 +154,9 @@ input{
   color: black;
   text-align: center;
   padding: 10px 25px;
-  float: right;
   font-size: 16px;
   cursor: pointer;
 }
-.student_list {
-  color: rgba(0, 0, 0, 0.3);
-  font-size: 15px;
-  font-family: sans-serif;
-  text-align: left;
-}
-
-.student_text {
-  color: black;
-  font-size: 20px;
-  text-align: left;
-  font-family: sans-serif;
-}
-
-.student_text_done {
-  color: black(0, 0, 0, 0.3);
-  font-size: 20px;
-  text-align: left;
-  font-family: sans-serif;
-
-}
-
-.flex_row {
-  display: flex;
-}
-
-.flex_between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.new_student_wrapper {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.new_student_wrapper > input {
-  margin-right: 20px;
-}
-
 /* .App {
   text-align: center;
 }

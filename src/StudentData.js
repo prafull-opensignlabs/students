@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import "./App.css";
-import {Form, Button, Input, List } from "antd";
+import { Form, Button, Input, List } from "antd";
 import logo from "./images/NXG_logo.png";
 
 const PARSE_APPLICATIION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
@@ -106,36 +106,33 @@ export const StudentData = () => {
             Refresh
           </Button>
         </div>
-        <div className="form">
+        <div className="new_student_wrapper ">
           {/* Student create text input */}
-          {/* <Form > */}
-          <Input
-            value={newStudentTitle}
-            className="Name"
-            onChange={(event) => setNewStudentTitle(event.target.value)}
-            placeholder="Student Name"
-            size="large"
-          />
-          <Input
-            className="Email"
-            value={newStudentEmail}
-            onChange={(event) => setNewStudentEmail(event.target.value)}
-            placeholder="Student Email"
-            size="large"
-          />
-          <Input
-            className="Age"
-            value={newStudentAge}
-            onChange={(event) => setNewStudentAge(event.target.value)}
-            placeholder="Student Age"
-            size="large"
-          />
-          
-          {/* Student create button */}
-          <Button onClick={createStudent} className="add_btn">
-            Add
-          </Button><br/><br/>
-          {/* </Form> */}
+          <Form>
+            <Input
+              value={newStudentTitle}
+              onChange={(event) => setNewStudentTitle(event.target.value)}
+              placeholder="Student Name"
+              size="large"
+            />
+            <Input
+              value={newStudentEmail}
+              onChange={(event) => setNewStudentEmail(event.target.value)}
+              placeholder="Student Email"
+              size="large"
+            />
+            <Input
+              value={newStudentAge}
+              onChange={(event) => setNewStudentAge(event.target.value)}
+              placeholder="Student Age"
+              size="large"
+            />
+
+            {/* Student create button */}
+            <Button onClick={createStudent} className="add_btn">
+              Add
+            </Button>
+          </Form>
         </div>
         <div>
           {/* Student read results list */}
@@ -182,7 +179,7 @@ export const StudentData = () => {
                       >
                         Delete
                       </Button>
-                    </div>{" "}
+                    </div>
                     <hr />
                   </List>
                 )}
