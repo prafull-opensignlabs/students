@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import "./App.css";
-import { Form, Button, Input, List } from "antd";
+import { Button, Input, List } from "antd";
 import logo from "./images/NXG_logo.png";
 
 const PARSE_APPLICATIION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
@@ -106,9 +106,9 @@ export const StudentData = () => {
             Refresh
           </Button>
         </div>
-        <div className="new_student_wrapper ">
+        <div className="new_student_wrapper flex_between ">
           {/* Student create text input */}
-          <Form>
+          {/* <Form> */}
             <Input
               value={newStudentTitle}
               onChange={(event) => setNewStudentTitle(event.target.value)}
@@ -132,8 +132,9 @@ export const StudentData = () => {
             <Button onClick={createStudent} className="add_btn">
               Add
             </Button>
-          </Form>
+          {/* </Form> */}
         </div>
+        {/* <hr/> */}
         <div>
           {/* Student read results list */}
           {readResults !== null &&
@@ -142,43 +143,40 @@ export const StudentData = () => {
               <List
                 dataSource={readResults}
                 renderItem={(item) => (
-                  <List className="student_List">
-                    <p
-                      className={
-                        item.get("done") === true
-                          ? "student_text_done"
-                          : "student_text"
-                      }
-                    >
-                      Name: {item.get("title")} <span />
-                      Email: {item.get("Email")} <span />
-                      Age: {item.get("Age")}
-                    </p>
-                    <div className="flex_row">
-                      {/* Student update button */}
-                      {item.get("done") !== false && (
+                  <List >
+                    <div className="flex_row1 ">
+                      <div className="student_list">
+                        Name: {item.get("title")} <span />
+                        Email: {item.get("Email")} <span />
+                        Age: {item.get("Age")}
+                        </div>
+
+                      <div className="flex_row2">
+                        {/* Student update button */}
+                        {item.get("done") !== false && (
+                          <Button
+                            onClick={() => updateStudent(item.id, false)}
+                            className="update_btn1"
+                          >
+                            Deactivate
+                          </Button>
+                        )}
+                        {item.get("done") !== true && (
+                          <Button
+                            onClick={() => updateStudent(item.id, true)}
+                            className="update_btn2"
+                          >
+                            Activate
+                          </Button>
+                        )}
+                        {/* student delete button */}
                         <Button
-                          onClick={() => updateStudent(item.id, false)}
-                          className="update_btn1"
+                          onClick={() => deleteStudent(item.id)}
+                          className="remove_btn"
                         >
-                          Deactivate
+                          Delete
                         </Button>
-                      )}
-                      {item.get("done") !== true && (
-                        <Button
-                          onClick={() => updateStudent(item.id, true)}
-                          className="update_btn2"
-                        >
-                          Activate
-                        </Button>
-                      )}
-                      {/* student delete button */}
-                      <Button
-                        onClick={() => deleteStudent(item.id)}
-                        className="remove_btn"
-                      >
-                        Delete
-                      </Button>
+                      </div>
                     </div>
                     <hr />
                   </List>
