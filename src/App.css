@@ -27,7 +27,6 @@ body {
   height: 35px;
   margin-bottom: 20px;
   object-fit: contain;
-  /* update css */
   width: 100%;
   margin: auto;
   padding: 0px 0;
@@ -92,6 +91,7 @@ input {
   font: 15px arial;
 }
 
+
 .add_btn {
   background-color: #4caf50; /* Green */
   border: double;
@@ -99,12 +99,13 @@ input {
   padding: 11px 32px;
   text-align: center;
   font-size: 16px;
-  float: left;
-  margin-left: 30px;
+  position: relative ;
+  margin-top: 5px;
+  margin-left: 20px;
   cursor: pointer;
 }
 
-.refresh_btn {
+/* .refresh_btn {
   background-color: dodgerblue;
   font-size: 16px;
   color: black;
@@ -113,7 +114,7 @@ input {
   padding: 10px 15px;
   margin-left: 30px;
   cursor: pointer;
-}
+} */
 
 .remove_btn {
   background-color: rgb(241, 19, 19);
@@ -123,7 +124,7 @@ input {
   padding: 10px 15px;
   font-size: 16px;
   cursor: pointer;
-  /* position:relative;  */
+
 }
 
 .update_btn1 {
@@ -134,7 +135,7 @@ input {
   padding: 10px 15px;
   font-size: 16px;
   cursor: pointer;
-  /* position:relative;   */
+
 }
 
 .update_btn2 {
@@ -145,34 +146,28 @@ input {
   padding: 10px 24px;
   font-size: 16px;
   cursor: pointer;
-  /* position:relative; */
 }
 
 #button{
   float: right;
-  margin-top: -18px;
+  /* margin-top: -18px; */
 }
- 
-.panel-body{
-  background-color:coral;
-}
-
-/* .item{
-  padding:10px;
-  padding-left: 20px;
-  position: relative;
-  display: inline-block;
+table {
+  border-collapse:separate;
   width: 100%;
-  color: black;
-  padding-left: 20px;
-  font-size: 12px;
-  cursor: pointer;
 }
-
-.item:nth-of-type(odd){
-  background-color: coral;
+td{
+  border-bottom: 5px solid whitesmoke;
+  text-align: left; 
+  padding: 8px;
+} 
+/*
+tr:nth-child(even) {
+  background-color: gold;
+} 
+tr:nth-child(odd){
+  background-color: palevioletred;
 }
-.item:nth-of-type(even){
-  background-color: white;
-} */
-
+ .panel-body:nth-child(odd) {
+  background: red;
+}*/
