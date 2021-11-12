@@ -54,28 +54,27 @@ body {
   width: 100%;
 }
 
-.student_list {
-  color: black(245, 9, 9, 0.3);
-  font-size: 20px;
-  font-family: sans-serif;
-  text-align: left;
+.form-inline {  
+  display:flex;
+  flex-flow: row wrap;
+  align-items: center;
 }
 
-.new_student_wrapper {
-  margin-top: 20px;
-  margin-bottom: 30px;
-  ;
-}
-/* .new_student_wrapper > input {
-  margin-right: 20px;
+/* .form-inline button {
+  background-color: #4caf50;
+  padding: 11px 32px;
+  border: double;
+  color: white;
+  cursor: pointer;
 } */
 
-/* .form-group{
-  margin-top: 20px;
-  margin-bottom: 20px;
+/* .form-inline button:hover {
+  background-color: #228f25;
+  
 } */
-.form-group > input {
-  margin-left: 20px;
+
+.form-inline > input {
+  margin-left : 40px;
   
 }
 
@@ -91,30 +90,22 @@ input {
   font: 15px arial;
 }
 
-
 .add_btn {
-  background-color: #4caf50; /* Green */
-  border: double;
-  color: white;
-  padding: 11px 32px;
-  text-align: center;
-  font-size: 16px;
-  position: relative ;
-  margin-top: 5px;
-  margin-left: 20px;
-  cursor: pointer;
+    background-color: #4caf50; 
+    border: double;
+    color: white;
+    padding: 11px 32px;
+    text-align: center;
+    font-size: 16px;
+    position: relative ;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
-
-/* .refresh_btn {
-  background-color: dodgerblue;
-  font-size: 16px;
-  color: black;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px 15px;
-  margin-left: 30px;
-  cursor: pointer;
-} */
+.add_btn:hover{
+  background-color: #228f25;
+}
 
 .remove_btn {
   background-color: rgb(241, 19, 19);
@@ -150,7 +141,6 @@ input {
 
 #button{
   float: right;
-  /* margin-top: -18px; */
 }
 table {
   border-collapse:separate;

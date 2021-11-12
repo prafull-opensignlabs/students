@@ -11,7 +11,7 @@ const PARSE_JAVASCRIPT_KEY = "U8VhPQ0CNgBF16PmcvNvjZFJv33mXw7gjJfvHQJm";
 Parse.initialize(PARSE_APPLICATIION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
-const COLOR_CODES = ['blue', "red", "green", "purple", "yellow", "#00FF00"];
+const COLOR_CODES = ["blue", "red", "green", "purple", "yellow", "#00FF00"];
 
 export const StudentData = () => {
   const [readResults, setReadResults] = useState([]);
@@ -94,8 +94,8 @@ export const StudentData = () => {
     }
   };
   const getRowColor = (index) => {
-    return COLOR_CODES[index%6]
-  }
+    return COLOR_CODES[index % 6];
+  };
   return (
     <div>
       <div className="header">
@@ -106,49 +106,37 @@ export const StudentData = () => {
           style={{ width: "200px", height: "118px" }}
         />
       </div>
-      <div></div>
       <div className="container">
         <h2 className="list_heading">Student Data</h2>
-        <div className="flex_between">
-          {/* student read (refresh) button */}
-          {/* <Button onClick={readStudents} className="refresh_btn">
-            Refresh
-          </Button> */}
-        </div>
+        <div className="flex_between"></div>
+        <div>
+          <form className="form-inline">
+            <Input
+              value={newStudentTitle}
+              onChange={(event) => setNewStudentTitle(event.target.value)}
+              placeholder="Student Name"
+              size="large"
+            />
 
-        <div className="new_student_wrapper flex_between ">
-          {/* Student create text input */}
-          <form class="form-inline">
-            <div class="form-group">
-              <Input
-                value={newStudentTitle}
-                onChange={(event) => setNewStudentTitle(event.target.value)}
-                placeholder="Student Name"
-                size="large"
-              />
-            </div>
-            <div class="form-group">
-              <Input
-                value={newStudentEmail}
-                onChange={(event) => setNewStudentEmail(event.target.value)}
-                placeholder="Student Email"
-                size="large"
-              />
-            </div>
-            <div class="form-group">
-              <Input
-                value={newStudentAge}
-                onChange={(event) => setNewStudentAge(event.target.value)}
-                placeholder="Student Age"
-                size="large"
-              />
-            </div>
-            {/* <div class="form-group"> */}
-            <Button onClick={createStudent} className="add_btn">
+            <Input
+              value={newStudentEmail}
+              onChange={(event) => setNewStudentEmail(event.target.value)}
+              placeholder="Student Email"
+              size="large"
+            />
+
+            <Input
+              value={newStudentAge}
+              onChange={(event) => setNewStudentAge(event.target.value)}
+              placeholder="Student Age"
+              size="large"
+            />
+
+           
+          </form>
+          <Button onClick={createStudent} className="add_btn">
               Add
             </Button>
-            {/* </div> */}
-          </form>
         </div>
 
         <div>
@@ -160,45 +148,46 @@ export const StudentData = () => {
                 dataSource={readResults}
                 renderItem={(item, index) => (
                   <>
-                  <table>
-                      <tr style={{backgroundColor: getRowColor(index)}}>
-                        <td>
-                          <span>Name: {item.get("title")} </span>
-                          <span>Email: {item.get("Email")} </span>
-                          <span>Age: {item.get("Age")}</span>
-                        </td>
-                        <td>
-                          <Button
-                            id="button"
-                            onClick={() => deleteStudent(item.id)}
-                            className="remove_btn"
-                          >
-                            Delete
-                          </Button>
-                          {/* Student update button */}
-                          {item.get("done") !== false && (
+                    <table>
+                      <tbody>
+                        <tr style={{ backgroundColor: getRowColor(index) }}>
+                          <td>
+                            <span>Name: {item.get("title")} </span>
+                            <span>Email: {item.get("Email")} </span>
+                            <span>Age: {item.get("Age")}</span>
+                          </td>
+                          <td>
                             <Button
                               id="button"
-                              onClick={() => updateStudent(item.id, false)}
-                              className="update_btn1"
+                              onClick={() => deleteStudent(item.id)}
+                              className="remove_btn"
                             >
-                              Deactivate
+                              Delete
                             </Button>
-                          )}
-                          {item.get("done") !== true && (
-                            <Button
-                              id="button"
-                              onClick={() => updateStudent(item.id, true)}
-                              className="update_btn2"
-                            >
-                              Activate
-                            </Button>
-                          )}
-                        </td>
-                      </tr>
-                      </table>
-                     </>
-                   
+                            {/* Student update button */}
+                            {item.get("done") !== false && (
+                              <Button
+                                id="button"
+                                onClick={() => updateStudent(item.id, false)}
+                                className="update_btn1"
+                              >
+                                Deactivate
+                              </Button>
+                            )}
+                            {item.get("done") !== true && (
+                              <Button
+                                id="button"
+                                onClick={() => updateStudent(item.id, true)}
+                                className="update_btn2"
+                              >
+                                Activate
+                              </Button>
+                            )}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </>
                 )}
               />
             )}
