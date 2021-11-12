@@ -12,6 +12,7 @@ body {
   background-color: whitesmoke;
   color: black;
   font-family: Arial;
+
 }
 
 .header {
@@ -60,24 +61,52 @@ body {
   align-items: center;
 }
 
-/* .form-inline button {
-  background-color: #4caf50;
-  padding: 11px 32px;
-  border: double;
-  color: white;
-  cursor: pointer;
-} */
 
-/* .form-inline button:hover {
-  background-color: #228f25;
-  
-} */
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid rgb(8, 8, 8);
+}
 
 .form-inline > input {
   margin-left : 40px;
   
 }
+/* .form-inline button {
+  background-color: #4caf50;
+  padding: 10px 20px;
+  border: double;
+  color: white;
+  cursor: pointer;
+}
 
+.form-inline button:hover {
+  background-color: #228f25;
+  
+} */
+@media (max-width: 800px) {
+  /* .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: row;
+    
+  }; */
+  .add_btn {
+    background-color: #4caf50; 
+    border: double;
+    color: white;
+    padding: 11px 32px;
+    text-align: center;
+    font-size: 16px;
+    position: relative ;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;}
+} 
 input {
   width: 400px;
   padding: 12px 20px;
@@ -145,19 +174,22 @@ input {
 table {
   border-collapse:separate;
   width: 100%;
+  margin-left: 0px;
 }
 td{
+  /* border-bottom: 1px solid black; */
   border-bottom: 5px solid whitesmoke;
   text-align: left; 
   padding: 8px;
 } 
-/*
-tr:nth-child(even) {
-  background-color: gold;
+
+/* tr:nth-child(even) {
+  background-color: rgb(245, 243, 233);
 } 
 tr:nth-child(odd){
-  background-color: palevioletred;
-}
+  background-color: rgb(158, 158, 158);
+} */
+/*
  .panel-body:nth-child(odd) {
   background: red;
 }*/

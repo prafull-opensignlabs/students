@@ -11,7 +11,7 @@ const PARSE_JAVASCRIPT_KEY = "U8VhPQ0CNgBF16PmcvNvjZFJv33mXw7gjJfvHQJm";
 Parse.initialize(PARSE_APPLICATIION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
 
-const COLOR_CODES = ["blue", "red", "green", "purple", "yellow", "#00FF00"];
+const COLOR_CODES = ["#808080","#F0FFFF"];
 
 export const StudentData = () => {
   const [readResults, setReadResults] = useState([]);
@@ -94,7 +94,7 @@ export const StudentData = () => {
     }
   };
   const getRowColor = (index) => {
-    return COLOR_CODES[index % 6];
+    return COLOR_CODES[index % 2];
   };
   return (
     <div>
@@ -131,8 +131,7 @@ export const StudentData = () => {
               placeholder="Student Age"
               size="large"
             />
-
-           
+            
           </form>
           <Button onClick={createStudent} className="add_btn">
               Add
@@ -185,7 +184,7 @@ export const StudentData = () => {
                             )}
                           </td>
                         </tr>
-                      </tbody>
+                      </tbody> 
                     </table>
                   </>
                 )}
