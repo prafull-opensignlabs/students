@@ -101,7 +101,7 @@ export const StudentData = () => {
         <div className="container">
           <h2 className="list_heading">Student Data</h2>
           <div className="flex_between"></div>
-          <div>
+          <div className="card">
             <form className="form-inline">
               <input
                 value={newStudentTitle}

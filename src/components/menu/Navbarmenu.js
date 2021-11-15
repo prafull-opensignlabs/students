@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink , Link} from "react-router-dom";
 import { FiAlignRight, FiXCircle} from "react-icons/fi"; //FiChevronDown  
 import logo from "../../images/NXG_logo.png";
 
-
+// import Contact from "../Contact";
 
 const Navbarmenu = () => {
   const [isMenu, setisMenu] = useState(false);
@@ -18,16 +18,16 @@ const Navbarmenu = () => {
   } else {
     boxClass.push("");
   }
-//   const [isMenuSubMenu, setMenuSubMenu] = useState(false);
-//   const toggleSubmenu = () => {
-//     setMenuSubMenu(isMenuSubMenu === false ? true : false);
-//   };
-//   let boxClassSubMenu = ["sub__menus"];
-//   if (isMenuSubMenu) {
-//     boxClassSubMenu.push("sub__menus__Active");
-//   } else {
-//     boxClassSubMenu.push("");
-//   }
+  // const [isMenuSubMenu, setMenuSubMenu] = useState(false);
+  // const toggleSubmenu = () => {
+  //   setMenuSubMenu(isMenuSubMenu === false ? true : false);
+  // };
+  // let boxClassSubMenu = ["sub__menus"];
+  // if (isMenuSubMenu) {
+  //   boxClassSubMenu.push("sub__menus__Active");
+  // } else {
+  //   boxClassSubMenu.push("");
+  // }
   return (
     <header className="header__middle">
       <div className="container">
@@ -77,17 +77,17 @@ const Navbarmenu = () => {
                   </NavLink>
                 </li>
                 <li className="menu-item ">
-                  <NavLink
+                  <Link
                     onClick={toggleClass}
                     activeClassName="is-active"
                     to={`/About`}
                   >
                     {" "}
                     About{" "}
-                  </NavLink>{" "}
+                  </Link>{" "}
                 </li>
 
-                <li className="menu-item ">
+                {/* <li className="menu-item ">
                   <NavLink
                     onClick={toggleClass}
                     activeClassName="is-active"
@@ -96,7 +96,7 @@ const Navbarmenu = () => {
                     {" "}
                     Contact{" "}
                   </NavLink>{" "}
-                </li>
+                </li> */}
               </ul>
             </nav>
           </div>
