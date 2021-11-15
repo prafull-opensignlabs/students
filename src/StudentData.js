@@ -17,20 +17,17 @@ export const StudentData = () => {
   const [newStudentTitle, setNewStudentTitle] = useState("");
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentAge, setNewStudentAge] = useState("");
-  // const [newStudentNumber, setNewStudentNumber]= useState("")
 
   const createStudent = async function () {
     const newStudentTitleValue = newStudentTitle;
     const newStudentEmailVaule = newStudentEmail;
     const newStudentAgeValue = Number(newStudentAge);
-    // const newStudentNumberValue = Number(newStudentNumber);
 
     let Student = new Parse.Object("Student");
     Student.set("title", newStudentTitleValue);
     Student.set("Email", newStudentEmailVaule);
     Student.set("Age", newStudentAgeValue);
     Student.set("done", false);
-    Student.set("SrNo", 1)
     try {
       await Student.save();
 
@@ -100,8 +97,6 @@ export const StudentData = () => {
 
   return (
     <>
-     
-
       <div>
         <div className="container">
           <h2 className="list_heading">Student Data</h2>
@@ -140,63 +135,63 @@ export const StudentData = () => {
               readResults !== undefined &&
               readResults.length > 0 && (
                 <div className="fresh-table full-color-orange">
-                  <table id="fresh-table" className="table">
+             
+                  <table id="fresh-table" className="table table-striped">
                     <thead>
-                      <th data-field="SrNo">Sr.No.</th>
-                      <th data-field="title">Name</th>
-                      <th data-field="Email">Email</th>
-                      <th data-field="Age">Age</th>
-                      <th data-field="Action ">Action</th>
+                      <tr>
+                        <th data-index="SrNo">Sr.No.</th>
+                        <th data-index="title">Name</th>
+                        <th data-index="Email">Email</th>
+                        <th data-index="Age">Age</th>
+                        <th data-index="Action ">Action</th>
+                      </tr>
                     </thead>
-                    {readResults.map((item, index) => {
-
-                      return (
+                    
+                      
                         <tbody>
-                        <tr>
-                          <td>
-                           {item.get("SrNo")}</td>
-                          <td>
-                            {item.get("title")} 
-                          </td>
-                          <td>
-                            {item.get("Email")} 
-                          </td>
-                          <td>
-                            {item.get("Age")}
-                          </td>
-                          <td>
-                            <button
-                              id="button"
-                              onClick={() => deleteStudent(item.id)}
-                              className="remove_btn"
-                            >
-                              Delete
-                            </button>
-                            {/* Student update button */}
-                            {item.get("done") !== false && (
+                        {readResults.map((item, index) => {
+                return (
+                          <tr>
+                            <td>{item.get("SrNo")}</td>
+                            <td>{item.get("title")}</td>
+                            <td>{item.get("Email")}</td>
+                            <td>{item.get("Age")}</td>
+                            <td>
                               <button
                                 id="button"
-                                onClick={() => updateStudent(item.id, false)}
-                                className="update_btn1"
+                                onClick={() => deleteStudent(item.id)}
+                                className="remove_btn"
                               >
-                                Deactivate
+                                Delete
                               </button>
-                            )}
-                            {item.get("done") !== true && (
-                              <button
-                                id="button"
-                                onClick={() => updateStudent(item.id, true)}
-                                className="update_btn2"
-                              >
-                                Activate
-                              </button>
-                            )}
-                          </td>
-                        </tr>
+                              {/* Student update button */}
+                              {item.get("done") !== false && (
+                                <button
+                                  id="button"
+                                  onClick={() => updateStudent(item.id, false)}
+                                  className="update_btn1"
+                                >
+                                  Deactivate
+                                </button>
+                              )}
+                              {item.get("done") !== true && (
+                                <button
+                                  id="button"
+                                  onClick={() => updateStudent(item.id, true)}
+                                  className="update_btn2"
+                                >
+                                  Activate
+                                </button>
+                              )}
+                            </td>
+                          </tr>
+                              );
+                            })}
                         </tbody>
-                      );
-                    })}
-                  </table>
+                      
+                      </table>
+                
+                  
                 </div>
               )}
           </div>
