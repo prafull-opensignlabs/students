@@ -185,7 +185,31 @@ export const StudentData = () => {
                       })}
                     </tbody>
                   </table>
-                </div>
+                  {/* <div className="fresh-table-pagination">
+                    <div classNam="pull-left pagination-detail">
+                      <span className="pagination-info"></span>
+                      <div className="page-list">
+                        <div className="btn-group dropdown dropup">
+                          <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                            <span className="page-siz"> </span>
+                            <span className="caret"></span>
+                          </button>
+                          <ul className="dropdown-menu" role="menu">
+                            <li role="menuitem" className>
+                              <a href="#">25</a>
+                            </li>
+                            <li role="menuitem" className>
+                              <a href="#">50</a>
+                            </li>
+                            <li role="menuitem" className>
+                              <a href="#">100</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div> 
+                  </div> */}
+                </div> 
               )}
           </div>
         </div>

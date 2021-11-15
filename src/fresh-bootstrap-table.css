@@ -1370,6 +1370,9 @@ input[type=file] > input[type=button]::-moz-focus-inner {
 .fresh-table[class*=full-color-] .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: rgba(255, 255, 255, 0.15);
 }
+.fresh-table[class*=full-color-] .table-striped > tbody > tr:nth-of-type(even):hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
 .fresh-table[class*=full-color-] .table-striped > tbody > tr:nth-of-type(odd):hover {
   background-color: rgba(255, 255, 255, 0.25);
 }
