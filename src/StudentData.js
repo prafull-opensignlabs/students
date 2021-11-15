@@ -135,22 +135,18 @@ export const StudentData = () => {
               readResults !== undefined &&
               readResults.length > 0 && (
                 <div className="fresh-table full-color-orange">
-             
                   <table id="fresh-table" className="table table-striped">
                     <thead>
-                      <tr>
-                        <th data-index="SrNo">Sr.No.</th>
-                        <th data-index="title">Name</th>
-                        <th data-index="Email">Email</th>
-                        <th data-index="Age">Age</th>
-                        <th data-index="Action ">Action</th>
-                      </tr>
+                      <th data-index="SrNo">Sr.No.</th>
+                      <th data-index="title">Name</th>
+                      <th data-index="Email">Email</th>
+                      <th data-index="Age">Age</th>
+                      <th data-index="Action ">Action</th>
                     </thead>
-                    
-                      
-                        <tbody>
-                        {readResults.map((item, index) => {
-                return (
+
+                    <tbody>
+                      {readResults.map((item, index) => {
+                        return (
                           <tr>
                             <td>{item.get("SrNo")}</td>
                             <td>{item.get("title")}</td>
@@ -185,13 +181,10 @@ export const StudentData = () => {
                               )}
                             </td>
                           </tr>
-                              );
-                            })}
-                        </tbody>
-                      
-                      </table>
-                
-                  
+                        );
+                      })}
+                    </tbody>
+                  </table>
                 </div>
               )}
           </div>
