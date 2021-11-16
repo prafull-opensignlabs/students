@@ -10,7 +10,7 @@ export const About = () => {
             <li> You can add New student Data</li>
             <li> You can't add data of student whose age is below 18 due to validation</li>
             <li> You can Delete student Data but only whose age is greater than 30 due to validation</li>
-            <li> yo can Activate / Deactivate student Data</li>
+            <li> You can Activate / Deactivate student Data</li>
             </ul>
         </div>
     )
