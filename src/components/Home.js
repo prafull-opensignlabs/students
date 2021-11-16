@@ -1,9 +1,10 @@
 import React from 'react'
+import { StudentData } from "../StudentData";
 
  const Home = () => {
     return (
-        <div className="sec__one">
-            
+        <div>
+             <StudentData />
         </div>
     )
 }
