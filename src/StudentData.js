@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Parse from "parse";
 import "./App.css";
-// import "./fresh-bootstrap-table.css";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+// import BootstrapTable from "react-bootstrap-table-next";
+import "./fresh-bootstrap-table.css";
+// import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 const PARSE_APPLICATION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -135,14 +136,17 @@ export const StudentData = ({studentData}) => {
             {readResults !== null &&
               readResults !== undefined &&
               readResults.length > 0 && (
-                <div className="fresh-table full-color-orange">
-                  <table id="fresh-table" className="table table-striped">
+                <div>
+                  {/* <BootstrapTable> */}
+                  <table id="bootstrap-table" className="table table-striped">
                     <thead>
+                      <tr>
                       <th data-index="SrNo">Sr.No.</th>
                       <th data-index="title">Name</th>
                       <th data-index="Email">Email</th>
                       <th data-index="Age">Age</th>
                       <th data-index="Action ">Action</th>
+                      </tr>
                     </thead>
 
                     <tbody>
@@ -186,7 +190,7 @@ export const StudentData = ({studentData}) => {
                       })}
                     </tbody>
                   </table>
-                  
+                  {/* </BootstrapTable> */}
                 </div> 
               )}
           </div>
