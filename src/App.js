@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import { About } from "./components/About";
 import Navbarmenu from "./components/menu/Navbarmenu";
 import Footer from "./components/Footer";
+
 // import Contact from "./components/Contact";
 
 const PARSE_APPLICATIION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
