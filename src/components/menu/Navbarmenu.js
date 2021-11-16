@@ -3,6 +3,7 @@ import { NavLink , Link} from "react-router-dom";
 import { FiAlignRight, FiXCircle} from "react-icons/fi"; //FiChevronDown  
 import logo from "../../images/NXG_logo.png";
 
+
 // import Contact from "../Contact";
 
 const Navbarmenu = () => {
@@ -34,7 +35,7 @@ const Navbarmenu = () => {
         <div className="row">
           {/* Add Logo  */}
           <div className="header__middle__logo">
-            <NavLink exact activeClassName="is-active" to="/">
+            <NavLink exact activeclassName="is-active" to="/">
               <img src={logo} alt="logo" />
             </NavLink>
           </div>
@@ -68,7 +69,7 @@ const Navbarmenu = () => {
                 <li className="menu-item">
                   <NavLink
                     exact
-                    activeClassName="is-active"
+                    activeclassName="is-active"
                     onClick={toggleClass}
                     to={`/`}
                   >
@@ -79,7 +80,7 @@ const Navbarmenu = () => {
                 <li className="menu-item ">
                   <Link
                     onClick={toggleClass}
-                    activeClassName="is-active"
+                    activeclassName="is-active"
                     to={`/About`}
                   >
                     {" "}
@@ -90,7 +91,7 @@ const Navbarmenu = () => {
                 {/* <li className="menu-item ">
                   <NavLink
                     onClick={toggleClass}
-                    activeClassName="is-active"
+                    activeclassName="is-active"
                     to={`/Contact`}
                   >
                     {" "}

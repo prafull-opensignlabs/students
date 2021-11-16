@@ -21,6 +21,7 @@ body {
 	margin-right:auto;
 	margin-left:auto
 }
+ 
 img {
   max-width: 100%;
   height: auto;
@@ -112,9 +113,9 @@ li {
   text-decoration: none;
   margin-top: 33px;
 }
-/* .active{
+.active{
   color: #ff1800!important;
-} */
+}
 .header__middle__menus span.text {
   position: absolute;
   right: 177px;
@@ -211,7 +212,7 @@ li {
 .menus__categorysss2{display: none;}
 .menu-item .sub__menus__full a {text-align: left;}
 
-}
+} 
 .list_heading{
  padding-top: 10px;
  background-color:aqua;
@@ -379,3 +380,26 @@ table tr td:first-child::before {
   min-width: 1em;
   margin-right: 0.5em;
 } */
+table {
+  counter-reset: rowNumber;
+}
+
+table tr {
+  counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+td{
+  border-bottom: 5px solid whitesmoke;
+  text-align: left; 
+  padding: 8px;
+  color:#000000;
+}  
+
+th{
+  padding: 10px;
+}

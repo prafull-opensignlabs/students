@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Parse from "parse";
-// import "./App.css";
-import "./fresh-bootstrap-table.css";
+import "./App.css";
+// import "./fresh-bootstrap-table.css";
+import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 const PARSE_APPLICATION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -12,7 +13,7 @@ Parse.serverURL = PARSE_HOST_URL;
 
 // const COLOR_CODES = ["#808080","#F0FFFF"];
 
-export const StudentData = () => {
+export const StudentData = ({studentData}) => {
   const [readResults, setReadResults] = useState([]);
   const [newStudentTitle, setNewStudentTitle] = useState("");
   const [newStudentEmail, setNewStudentEmail] = useState("");
@@ -124,7 +125,7 @@ export const StudentData = () => {
                 size="large"
               />
             </form>
-            <button onClick={createStudent} className="add_btn">
+            <button type="submit"onClick={createStudent} className="add_btn">
               Add
             </button>
           </div>
@@ -147,7 +148,7 @@ export const StudentData = () => {
                     <tbody>
                       {readResults.map((item, index) => {
                         return (
-                          <tr>
+                          <tr key={item.id}>
                             <td>{item.get("SrNo")}</td>
                             <td>{item.get("title")}</td>
                             <td>{item.get("Email")}</td>
@@ -185,30 +186,7 @@ export const StudentData = () => {
                       })}
                     </tbody>
                   </table>
-                  {/* <div className="fresh-table-pagination">
-                    <div classNam="pull-left pagination-detail">
-                      <span className="pagination-info"></span>
-                      <div className="page-list">
-                        <div className="btn-group dropdown dropup">
-                          <button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                            <span className="page-siz"> </span>
-                            <span className="caret"></span>
-                          </button>
-                          <ul className="dropdown-menu" role="menu">
-                            <li role="menuitem" className>
-                              <a href="#">25</a>
-                            </li>
-                            <li role="menuitem" className>
-                              <a href="#">50</a>
-                            </li>
-                            <li role="menuitem" className>
-                              <a href="#">100</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div> 
-                  </div> */}
+                  
                 </div> 
               )}
           </div>
