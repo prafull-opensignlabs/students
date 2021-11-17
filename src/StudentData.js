@@ -3,7 +3,7 @@ import Parse from "parse";
 import "./App.css";
 import BootstrapTable from "react-bootstrap-table-next";
 import "./fresh-bootstrap-table.css";
-// import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";  
+// import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 const PARSE_APPLICATION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -11,8 +11,6 @@ const PARSE_JAVASCRIPT_KEY = "U8VhPQ0CNgBF16PmcvNvjZFJv33mXw7gjJfvHQJm";
 
 Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
-
-
 
 export const StudentData = () => {
   const [readResults, setReadResults] = useState([]);
@@ -22,7 +20,7 @@ export const StudentData = () => {
 
   //For fetching data automatically on page load
   useEffect(() => {
-    readStudents();  
+    readStudents();
   }, []);
 
   // For creating new Entry
@@ -90,7 +88,7 @@ export const StudentData = () => {
     }
   };
 
-  //For delte Data from db 
+  //For delte Data from db
   const deleteStudent = async function (studentId) {
     let Student = new Parse.Object("Student");
     Student.set("objectId", studentId);
@@ -167,44 +165,67 @@ export const StudentData = () => {
       },
     },
   ];
+  // const submit = (event) => {
+  //   event.preventDefault();
+  //   // if (!newStudentTitle || !newStudentEmail || !newStudentAge) {
+  //   //     alert("Title or Description cannot be blank");
+  //   // }
 
+  //       createStudent(newStudentTitle, newStudentEmail, newStudentAge);
+  //       setNewStudentTitle("");
+  //       setNewStudentEmail("");
+  //       setNewStudentAge("");
+
+  // }
   return (
     <>
       <div>
         <div className="container">
           <h2 className="list_heading">Student Data</h2>
           <div className="flex_between"></div>
-          <div >
+          <div className="card">
+            <div className="card-body no-padding height-9">
             {/* Inputs */}
             <form className="form-inline">
-              <input
-                value={newStudentTitle}
-                onChange={(event) => setNewStudentTitle(event.target.value)}
-                placeholder="Student Name"
-                size="large"
-              />
+            
+                <input
+                  value={newStudentTitle}
+                  onChange={(event) => setNewStudentTitle(event.target.value)}
+                  placeholder="Student Name"
+                  size="large"
+                />
 
-              <input
-                value={newStudentEmail}
-                onChange={(event) => setNewStudentEmail(event.target.value)}
-                placeholder="Student Email"
-                size="large"
-              />
+                <input
+                  value={newStudentEmail}
+                  onChange={(event) => setNewStudentEmail(event.target.value)}
+                  placeholder="Student Email"
+                  size="large"
+                />
 
-              <input
-                value={newStudentAge}
-                onChange={(event) => setNewStudentAge(event.target.value)}
-                placeholder="Student Age"
-                size="large"
-              />
-               
+                <input
+                  value={newStudentAge}
+                  onChange={(event) => setNewStudentAge(event.target.value)}
+                  placeholder="Student Age"
+                  size="large"
+                />
+             
             </form>
-            <button onClick={createStudent} className="add_btn">
+            <button type="button" onClick={createStudent} className="add_btn">
               Add
-               </button>
+            </button>
+          </div>
           </div>
           {/* Bootstrap table */}
-          <BootstrapTable keyField="id" data={readResults} columns={columns}   striped hover condensed/>
+          <div className="card">
+          <BootstrapTable
+            keyField="id"
+            data={readResults}
+            columns={columns}
+            striped
+            hover
+            condensed
+          />
+          </div>
         </div>
       </div>
     </>

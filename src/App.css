@@ -1,5 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 1200px){
+.container {
+    max-width: 100%;
+}}
+@media (min-width: 992px){
+.container {
+    max-width: 100%;
+}}
+@media (min-width: 768px){
+.container {
+    max-width: 100%;
+}}
+
+@media (min-width: 1200px){
+.container {
+    max-width: 100%;
+}}
+@media (min-width: 992px){
+.container {
+    max-width: 100%;
+}}
+@media (min-width: 768px){
+.container {
+    max-width: 100%;
+}}
+@media (min-width: 576px){
+.container {
+    max-width: 100%;
+}}
 .wrapper {
   width: 90%;
   align-self: "center";
@@ -14,13 +50,13 @@ body {
   font-family: "Inter", sans-serif;
   display: grid;
 }
-.container {
+/* .container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
+} */
 
 img {
   max-width: 100%;
@@ -118,6 +154,7 @@ li {
   .header__middle .active {
     color: #000000 !important;
   }
+  
 }
 
 
@@ -350,4 +387,17 @@ td {
 
 th {
   padding: 10px;
+}
+.card{
+  display: flex;
+position: relative;
+margin-bottom: 24px;
+margin-top: 10px;
+background-color: #fff;
+border-radius: 3px;
+box-shadow: 0 1px 3px 0 rgb(0 0 0 / 33%);
+}
+.card-body{
+  padding: 10px 24px 14px 24px;
+    position: relative;
 }
