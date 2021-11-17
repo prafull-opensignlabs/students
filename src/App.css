@@ -317,24 +317,13 @@ input {
   background-color: #228f25;
 }
 
-.remove_btn {
-  background-color: rgb(241, 19, 19);
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 10px 29.7px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.remove_btn:hover {
-  background-color: rgb(190, 0, 0);
-}
+
 .update_btn1 {
   background-color: rgb(6, 165, 228);
   font-size: 16px;
   color: black;
   text-align: center;
-  padding: 10px 14.6px;
+  /* padding: 10px 14.6px; */
   font-size: 16px;
   cursor: pointer;
 }
@@ -347,21 +336,34 @@ input {
   font-size: 16px;
   color: black;
   text-align: center;
-  padding: 10px 23.2px;
+  padding: 1px 15.1px;
   font-size: 16px;
   cursor: pointer;
 } 
 .update_btn2:hover {
   background-color: rgb(4, 123, 170);
 }
-#button {
-  float: right;
+.remove_btn {
+  background-color: rgb(241, 19, 19);
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 1px 22px;
+  font-size: 16px;
+  cursor: pointer;
 }
+.remove_btn:hover {
+  background-color: rgb(190, 0, 0);
+}
+/* #button {
+  float: right;
+} */
 
 .footer {
   background-color: #080808;
   color: white;
   padding: 20px;
+
 }
 
 

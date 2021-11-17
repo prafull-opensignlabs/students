@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Parse from "parse";
 import "./App.css";
 import BootstrapTable from "react-bootstrap-table-next";
-import "./fresh-bootstrap-table.css";
-// import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+// import "./fresh-bootstrap-table.css";
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 const PARSE_APPLICATION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -149,7 +150,7 @@ export const StudentData = () => {
             <button
               id="button"
               onClick={() => deleteStudent(row.id)}
-              className="remove_btn"
+              class="remove_btn"
             >
               Delete
             </button>
@@ -224,6 +225,7 @@ export const StudentData = () => {
             striped
             hover
             condensed
+            pagination={ paginationFactory() }
           />
           </div>
         </div>
