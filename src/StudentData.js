@@ -3,12 +3,12 @@ import Parse from "parse";
 import "./App.css";
 import BootstrapTable from "react-bootstrap-table-next";
 // import "./fresh-bootstrap-table.css";
-import paginationFactory from 'react-bootstrap-table2-paginator';
+import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
-const PARSE_APPLICATION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
+const PARSE_APPLICATION_ID = "TIYO6wjIN55gA47WdBG7iSROns8jhe798Pad7EdF";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
-const PARSE_JAVASCRIPT_KEY = "U8VhPQ0CNgBF16PmcvNvjZFJv33mXw7gjJfvHQJm";
+const PARSE_JAVASCRIPT_KEY = "Si8mPs6maxQE3IDN8QHb6LRLF2mP1dJ7tj8vKa6A";
 
 Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
@@ -18,7 +18,8 @@ export const StudentData = () => {
   const [newStudentTitle, setNewStudentTitle] = useState("");
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentAge, setNewStudentAge] = useState("");
-
+  const [newStudentAddress, setNewStudentAddress] = useState("");
+  // const [newStudentDOB, setNewStudentDOB] = useState("");
   //For fetching data automatically on page load
   useEffect(() => {
     readStudents();
@@ -29,12 +30,14 @@ export const StudentData = () => {
     const newStudentTitleValue = newStudentTitle;
     const newStudentEmailVaule = newStudentEmail;
     const newStudentAgeValue = Number(newStudentAge);
+    const newStudentAddressValue = newStudentAddress.split(",");
 
     let Student = new Parse.Object("Student");
     Student.set("title", newStudentTitleValue);
     Student.set("Email", newStudentEmailVaule);
     Student.set("Age", newStudentAgeValue);
-    Student.set("done", false);
+    Student.set("Address", newStudentAddressValue);
+    Student.set("done", true);
     try {
       await Student.save();
 
@@ -57,8 +60,11 @@ export const StudentData = () => {
         title: item.get("title"),
         Email: item.get("Email"),
         Age: item.get("Age"),
+        Address: item.get("Address"),
+
         objectId: item.get("objectId"),
         done: item.get("done"),
+
         id: item.id,
       }));
 
@@ -119,6 +125,11 @@ export const StudentData = () => {
     {
       dataField: "Age",
       text: "Age",
+    },
+
+    {
+      dataField: "Address",
+      text: "Address",
     },
     {
       dataField: "df2",
@@ -186,9 +197,8 @@ export const StudentData = () => {
           <div className="flex_between"></div>
           <div className="card">
             <div className="card-body no-padding height-9">
-            {/* Inputs */}
-            <form className="form-inline">
-            
+              {/* Inputs */}
+              <form className="form-inline">
                 <input
                   value={newStudentTitle}
                   onChange={(event) => setNewStudentTitle(event.target.value)}
@@ -209,24 +219,30 @@ export const StudentData = () => {
                   placeholder="Student Age"
                   size="large"
                 />
-             
-            </form>
-            <button type="button" onClick={createStudent} className="add_btn">
-              Add
-            </button>
-          </div>
+
+                <input
+                  value={newStudentAddress}
+                  onChange={(event) => setNewStudentAddress(event.target.value)}
+                  placeholder="Student Address"
+                  size="large"
+                />
+              </form>
+              <button type="button" onClick={createStudent} className="add_btn">
+                Add
+              </button>
+            </div>
           </div>
           {/* Bootstrap table */}
           <div className="card">
-          <BootstrapTable
-            keyField="id"
-            data={readResults}
-            columns={columns}
-            striped
-            hover
-            condensed
-            pagination={ paginationFactory() }
-          />
+            <BootstrapTable
+              keyField="id"
+              data={readResults}
+              columns={columns}
+              striped
+              hover
+              condensed
+              pagination={paginationFactory()}
+            />
           </div>
         </div>
       </div>

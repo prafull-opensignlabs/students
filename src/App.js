@@ -10,9 +10,9 @@ import Navbarmenu from "./components/menu/Navbarmenu";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
-const PARSE_APPLICATIION_ID = "QNRm8MgB7Qi1DjAD0Rw6qtjXLnTZ1fa7JGWBknS8";
+const PARSE_APPLICATIION_ID = "TIYO6wjIN55gA47WdBG7iSROns8jhe798Pad7EdF";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
-const PARSE_JAVASCRIPT_KEY = "U8VhPQ0CNgBF16PmcvNvjZFJv33mXw7gjJfvHQJm";
+const PARSE_JAVASCRIPT_KEY = "Si8mPs6maxQE3IDN8QHb6LRLF2mP1dJ7tj8vKa6A";
 
 Parse.initialize(PARSE_APPLICATIION_ID, PARSE_JAVASCRIPT_KEY);
 Parse.serverURL = PARSE_HOST_URL;
