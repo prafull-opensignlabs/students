@@ -18,8 +18,13 @@ export const StudentData = () => {
   const [newStudentTitle, setNewStudentTitle] = useState("");
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentAge, setNewStudentAge] = useState("");
+
+  //Array of Object
   const [newStudentAddress, setNewStudentAddress] = useState("");
-  // const [newStudentDOB, setNewStudentDOB] = useState("");
+  const [newStudentZipcode, setnewStudentZipcode] = useState("");
+  const [newStudentCity, setnewStudentCity] = useState("");
+  const [newStudentState, setnewStudentState] = useState("");
+
   //For fetching data automatically on page load
   useEffect(() => {
     readStudents();
@@ -30,14 +35,27 @@ export const StudentData = () => {
     const newStudentTitleValue = newStudentTitle;
     const newStudentEmailVaule = newStudentEmail;
     const newStudentAgeValue = Number(newStudentAge);
-    const newStudentAddressValue = newStudentAddress.split(",");
+
+    //Array of Object
+    const newStudentAddressvalue = newStudentAddress;
+    const newstudentZipcodeValue = Number(newStudentZipcode);
+    const newStudentCityValue = newStudentCity;
+    const newStudentStateValue = newStudentState;
 
     let Student = new Parse.Object("Student");
     Student.set("title", newStudentTitleValue);
     Student.set("Email", newStudentEmailVaule);
     Student.set("Age", newStudentAgeValue);
-    Student.set("Address", newStudentAddressValue);
+
     Student.set("done", true);
+    Student.set("arrayofobject", [
+      {
+        AddressLine: newStudentAddressvalue,
+        zipcode: newstudentZipcodeValue,
+        city: newStudentCityValue,
+        state: newStudentStateValue,
+      },
+    ]);
     try {
       await Student.save();
 
@@ -60,15 +78,14 @@ export const StudentData = () => {
         title: item.get("title"),
         Email: item.get("Email"),
         Age: item.get("Age"),
-        Address: item.get("Address"),
-
-        objectId: item.get("objectId"),
+        arrayofobject: item.get("arrayofobject"),
+        objectId: "",
         done: item.get("done"),
-
-        id: item.id,
+        Srno: item.get(""),
       }));
 
       setReadResults(studentsJsonArr);
+      // console.log(studentsJsonArr)
       return true;
     } catch (error) {
       alert(`Error! ${error.message}`);
@@ -112,6 +129,7 @@ export const StudentData = () => {
     }
   };
 
+
   //for making columns in bootstrap table with buttons
   const columns = [
     {
@@ -126,10 +144,18 @@ export const StudentData = () => {
       dataField: "Age",
       text: "Age",
     },
-
     {
-      dataField: "Address",
-      text: "Address",
+      dataField: "arrayofobject",
+      text: "AddressLine",
+      
+      //for showing array of object on ui in row
+      formatter: function (item) {
+        if (item) {
+          return (
+            item[0].AddressLine +", " + item[0].city +", " + item[0].state + ", " + item[0].zipcode +"."
+          );
+        }
+      },
     },
     {
       dataField: "df2",
@@ -161,7 +187,7 @@ export const StudentData = () => {
             <button
               id="button"
               onClick={() => deleteStudent(row.id)}
-              class="remove_btn"
+              className="remove_btn"
             >
               Delete
             </button>
@@ -177,6 +203,7 @@ export const StudentData = () => {
       },
     },
   ];
+
   // const submit = (event) => {
   //   event.preventDefault();
   //   // if (!newStudentTitle || !newStudentEmail || !newStudentAge) {
@@ -224,6 +251,24 @@ export const StudentData = () => {
                   value={newStudentAddress}
                   onChange={(event) => setNewStudentAddress(event.target.value)}
                   placeholder="Student Address"
+                  size="large"
+                />
+                <input
+                  value={newStudentZipcode}
+                  onChange={(event) => setnewStudentZipcode(event.target.value)}
+                  placeholder="Student Zipcode"
+                  size="large"
+                />
+                <input
+                  value={newStudentCity}
+                  onChange={(event) => setnewStudentCity(event.target.value)}
+                  placeholder="Student City"
+                  size="large"
+                />
+                <input
+                  value={newStudentState}
+                  onChange={(event) => setnewStudentState(event.target.value)}
+                  placeholder="Student State"
                   size="large"
                 />
               </form>

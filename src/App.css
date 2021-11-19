@@ -380,7 +380,7 @@ input {
     min-width: 1em;
     margin-right: 0.5em;
   } */
-td {
+/* td {
   border-bottom: 5px solid whitesmoke;
   text-align: left;
   padding: 8px;
@@ -389,7 +389,7 @@ td {
 
 th {
   padding: 10px;
-}
+} */
 .card{
   display: flex;
 position: relative;
