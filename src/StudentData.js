@@ -15,11 +15,15 @@ Parse.serverURL = PARSE_HOST_URL;
 
 export const StudentData = () => {
   const [readResults, setReadResults] = useState([]);
-  const [newStudentTitle, setNewStudentTitle] = useState("");
+  // const [newStudentTitle, setNewStudentTitle] = useState();
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentAge, setNewStudentAge] = useState("");
 
   //Array of Object
+
+  const [newStudentFirstName, setNewStudentFirstName] = useState("");
+  const [newStudentLastName, setNewStudentLastName] = useState("");
+//
   const [newStudentAddress, setNewStudentAddress] = useState("");
   const [newStudentZipcode, setnewStudentZipcode] = useState("");
   const [newStudentCity, setnewStudentCity] = useState("");
@@ -32,18 +36,25 @@ export const StudentData = () => {
 
   // For creating new Entry
   const createStudent = async function () {
-    const newStudentTitleValue = newStudentTitle;
+    // const newStudentTitleValue = newStudentTitle;
     const newStudentEmailVaule = newStudentEmail;
     const newStudentAgeValue = Number(newStudentAge);
 
     //Array of Object
+    const newStudentFirsNameValue = newStudentFirstName;
+    const newStudentLastNameValue = newStudentLastName;
+//
     const newStudentAddressvalue = newStudentAddress;
     const newstudentZipcodeValue = Number(newStudentZipcode);
     const newStudentCityValue = newStudentCity;
     const newStudentStateValue = newStudentState;
 
     let Student = new Parse.Object("Student");
-    Student.set("title", newStudentTitleValue);
+    Student.set("Name", {
+      First_Name: newStudentFirsNameValue,
+      Last_name: newStudentLastNameValue,
+    });
+
     Student.set("Email", newStudentEmailVaule);
     Student.set("Age", newStudentAgeValue);
 
@@ -76,7 +87,9 @@ export const StudentData = () => {
       let students = await parseQuery.find();
       const studentsJsonArr = students.map((item) => ({
         id: item.id,
-        title: item.get("title"),
+        // title: item.get("title"),
+        Name: item.get("Name"),
+
         Email: item.get("Email"),
         Age: item.get("Age"),
         arrayofobject: item.get("arrayofobject"),
@@ -128,12 +141,19 @@ export const StudentData = () => {
     }
   };
 
-
   //for making columns in bootstrap table with buttons
   const columns = [
+    // {
+    //   dataField: "id",
+    //   text: "student id",
+    // },
     {
-      dataField: "title",
-      text: "title",
+      dataField: "Name",
+      text: "Name",
+      formatter: function (item) {
+        if (item) {
+          return (
+            item.First_Name + " " + item.Last_name );}},
     },
     {
       dataField: "Email",
@@ -151,7 +171,14 @@ export const StudentData = () => {
       formatter: function (item) {
         if (item) {
           return (
-            item[0].AddressLine +", " + item[0].city +", " + item[0].state + ", " + item[0].zipcode +"."
+            item[0].AddressLine +
+            ", " +
+            item[0].city +
+            ", " +
+            item[0].state +
+            ", " +
+            item[0].zipcode +
+            "."
           );
         }
       },
@@ -226,9 +253,19 @@ export const StudentData = () => {
               {/* Inputs */}
               <form className="form-inline">
                 <input
-                  value={newStudentTitle}
-                  onChange={(event) => setNewStudentTitle(event.target.value)}
-                  placeholder="Student Name"
+                  value={newStudentFirstName}
+                  onChange={(event) =>
+                    setNewStudentFirstName(event.target.value)
+                  }
+                  placeholder="First Name"
+                  size="large"
+                />
+                <input
+                  value={newStudentLastName}
+                  onChange={(event) =>
+                    setNewStudentLastName(event.target.value)
+                  }
+                  placeholder="Last Name"
                   size="large"
                 />
 
@@ -293,3 +330,5 @@ export const StudentData = () => {
     </>
   );
 };
+
+// {__type : "pointer", class:"Student", id:"hjkh"}
