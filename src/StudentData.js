@@ -75,13 +75,12 @@ export const StudentData = () => {
     try {
       let students = await parseQuery.find();
       const studentsJsonArr = students.map((item) => ({
+        id: item.id,
         title: item.get("title"),
         Email: item.get("Email"),
         Age: item.get("Age"),
         arrayofobject: item.get("arrayofobject"),
-        objectId: "",
         done: item.get("done"),
-        Srno: item.get(""),
       }));
 
       setReadResults(studentsJsonArr);
@@ -147,8 +146,8 @@ export const StudentData = () => {
     {
       dataField: "arrayofobject",
       text: "AddressLine",
-      
-      //for showing array of object on ui in row
+
+      // for showing array of object on ui in row
       formatter: function (item) {
         if (item) {
           return (
