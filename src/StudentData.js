@@ -104,7 +104,8 @@ export const StudentData = () => {
         arrayofobject: item.get("arrayofobject"),
         done: item.get("done"),
         DateofJoin: item.get("DateofJoin"),
-        DateofEnd: item.get("DateofEnd")
+        DateofEnd: item.get("DateofEnd"),
+        geopoint: item.get("location")
       }));
 
       setReadResults(studentsJsonArr);
@@ -202,6 +203,15 @@ export const StudentData = () => {
         if (item) {
           return (
             item + " " );}}
+    },
+    {
+      dataField: "geopoint",
+      text: "geopoint",
+      // filter: dateFilter()
+      formatter: function (item) {
+        if (item) {
+          return (
+            item.latitude + ", " + item.longitude);}}
     },
     
     {
