@@ -5,7 +5,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 // import "./fresh-bootstrap-table.css";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-
+import { useGeoLocation } from "./useGeoLocation";
 
 const PARSE_APPLICATION_ID = "TIYO6wjIN55gA47WdBG7iSROns8jhe798Pad7EdF";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -18,7 +18,8 @@ export const StudentData = () => {
   const [readResults, setReadResults] = useState([]);
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentAge, setNewStudentAge] = useState("");
- 
+  //for geopoint
+  const Location = useGeoLocation();
 
   //Array of Object
 
@@ -29,7 +30,8 @@ export const StudentData = () => {
   const [newStudentZipcode, setnewStudentZipcode] = useState("");
   const [newStudentCity, setnewStudentCity] = useState("");
   const [newStudentState, setnewStudentState] = useState("");
-  const [newStudentDateofBirth, setNewStudentDateofBirth]= useState("")
+  const [newStudentDateofJoin, setNewStudentDateofJoin]= useState("")
+ 
   //For fetching data automatically on page load
   useEffect(() => {
     readStudents();
@@ -48,7 +50,11 @@ export const StudentData = () => {
     const newstudentZipcodeValue = Number(newStudentZipcode);
     const newStudentCityValue = newStudentCity;
     const newStudentStateValue = newStudentState;
-    const newStudentDateofBirthValue = new Date (newStudentDateofBirth);
+    const newStudentDateofJoinValue = new Date(newStudentDateofJoin);
+//current position
+    const geopoint = new Parse.GeoPoint(Location.coordinates.lat, Location.coordinates.lng);
+
+
 
     let Student = new Parse.Object("Student");
     Student.set("Name", {
@@ -58,7 +64,7 @@ export const StudentData = () => {
 
     Student.set("Email", newStudentEmailVaule);
     Student.set("Age", newStudentAgeValue);
-    Student.set("DateofBirth", newStudentDateofBirthValue)
+    Student.set("DateofJoin", newStudentDateofJoinValue)
     Student.set("done", true);
     Student.set("arrayofobject", [
       {
@@ -68,6 +74,8 @@ export const StudentData = () => {
         state: newStudentStateValue,
       },
     ]);
+    Student.set("location", geopoint)
+ 
     try {
       await Student.save();
 
@@ -95,7 +103,8 @@ export const StudentData = () => {
         Age: item.get("Age"),
         arrayofobject: item.get("arrayofobject"),
         done: item.get("done"),
-        DateofBirth: item.get("DateofBirth")
+        DateofJoin: item.get("DateofJoin"),
+        DateofEnd: item.get("DateofEnd")
       }));
 
       setReadResults(studentsJsonArr);
@@ -186,14 +195,15 @@ export const StudentData = () => {
       },
     },
     {
-      dataField: "DateofBirth",
-      text: "Date of Birth",
+      dataField: "DateofJoin",
+      text: "Date of Join",
       // filter: dateFilter()
       formatter: function (item) {
         if (item) {
           return (
-            item + "" );}}
+            item + " " );}}
     },
+    
     {
       dataField: "df2",
       isDummyField: true,
@@ -255,6 +265,11 @@ export const StudentData = () => {
   // }
   return (
     <>
+     {/* <div>
+            {
+              location.loaded ? JSON.stringify(location): "location data is not available"
+            }
+          </div> */}
       <div>
         <div className="container">
           <h2 className="list_heading">Student Data</h2>
@@ -319,9 +334,9 @@ export const StudentData = () => {
                   size="large"
                 />
                  <input
-                  value={newStudentDateofBirth}
-                  onChange={(event) => setNewStudentDateofBirth(event.target.value)}
-                  placeholder="Date of Birth (mm/dd/yyyy)"
+                  value={newStudentDateofJoin}
+                  onChange={(event) => setNewStudentDateofJoin(event.target.value)}
+                  placeholder="Date of Join (mm/dd/yyyy)"
                   size="large"
                 />
               </form>
