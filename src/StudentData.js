@@ -6,6 +6,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
+
 const PARSE_APPLICATION_ID = "TIYO6wjIN55gA47WdBG7iSROns8jhe798Pad7EdF";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
 const PARSE_JAVASCRIPT_KEY = "Si8mPs6maxQE3IDN8QHb6LRLF2mP1dJ7tj8vKa6A";
@@ -15,9 +16,9 @@ Parse.serverURL = PARSE_HOST_URL;
 
 export const StudentData = () => {
   const [readResults, setReadResults] = useState([]);
-  // const [newStudentTitle, setNewStudentTitle] = useState();
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentAge, setNewStudentAge] = useState("");
+ 
 
   //Array of Object
 
@@ -28,7 +29,7 @@ export const StudentData = () => {
   const [newStudentZipcode, setnewStudentZipcode] = useState("");
   const [newStudentCity, setnewStudentCity] = useState("");
   const [newStudentState, setnewStudentState] = useState("");
-
+  const [newStudentDateofBirth, setNewStudentDateofBirth]= useState("")
   //For fetching data automatically on page load
   useEffect(() => {
     readStudents();
@@ -36,7 +37,6 @@ export const StudentData = () => {
 
   // For creating new Entry
   const createStudent = async function () {
-    // const newStudentTitleValue = newStudentTitle;
     const newStudentEmailVaule = newStudentEmail;
     const newStudentAgeValue = Number(newStudentAge);
 
@@ -48,6 +48,7 @@ export const StudentData = () => {
     const newstudentZipcodeValue = Number(newStudentZipcode);
     const newStudentCityValue = newStudentCity;
     const newStudentStateValue = newStudentState;
+    const newStudentDateofBirthValue = new Date (newStudentDateofBirth);
 
     let Student = new Parse.Object("Student");
     Student.set("Name", {
@@ -57,7 +58,7 @@ export const StudentData = () => {
 
     Student.set("Email", newStudentEmailVaule);
     Student.set("Age", newStudentAgeValue);
-
+    Student.set("DateofBirth", newStudentDateofBirthValue)
     Student.set("done", true);
     Student.set("arrayofobject", [
       {
@@ -94,6 +95,7 @@ export const StudentData = () => {
         Age: item.get("Age"),
         arrayofobject: item.get("arrayofobject"),
         done: item.get("done"),
+        DateofBirth: item.get("DateofBirth")
       }));
 
       setReadResults(studentsJsonArr);
@@ -182,6 +184,15 @@ export const StudentData = () => {
           );
         }
       },
+    },
+    {
+      dataField: "DateofBirth",
+      text: "Date of Birth",
+      // filter: dateFilter()
+      formatter: function (item) {
+        if (item) {
+          return (
+            item + "" );}}
     },
     {
       dataField: "df2",
@@ -305,6 +316,12 @@ export const StudentData = () => {
                   value={newStudentState}
                   onChange={(event) => setnewStudentState(event.target.value)}
                   placeholder="Student State"
+                  size="large"
+                />
+                 <input
+                  value={newStudentDateofBirth}
+                  onChange={(event) => setNewStudentDateofBirth(event.target.value)}
+                  placeholder="Date of Birth (mm/dd/yyyy)"
                   size="large"
                 />
               </form>
