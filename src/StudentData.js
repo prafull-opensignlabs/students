@@ -286,6 +286,7 @@ export const StudentData = () => {
           <div className="flex_between"></div>
           <div className="card">
             <div className="card-body no-padding height-9">
+
               {/* Inputs */}
               <form className="form-inline">
                 <input
@@ -373,4 +374,4 @@ export const StudentData = () => {
   );
 };
 
-// {__type : "pointer", class:"Student", id:"hjkh"}
+
