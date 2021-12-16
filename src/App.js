@@ -9,6 +9,7 @@ import { About } from "./components/About";
 import Navbarmenu from "./components/menu/Navbarmenu";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
+import Error from "./components/Error";
 
 const PARSE_APPLICATIION_ID = "TIYO6wjIN55gA47WdBG7iSROns8jhe798Pad7EdF";
 const PARSE_HOST_URL = "https://parseapi.back4app.com/";
@@ -23,12 +24,14 @@ function App() {
       <Router basename="/">
         {/* Add menu component */}
         <Navbarmenu />
+        
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
+          {/* <Route element={<Error />} /> */}
         </Routes>
-
+        {/* <Error /> */}
         <Footer />
       </Router>
     </>

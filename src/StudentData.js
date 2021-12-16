@@ -52,7 +52,7 @@ export const StudentData = () => {
     const newStudentStateValue = newStudentState;
     const newStudentDateofJoinValue = new Date(newStudentDateofJoin);
 //current position
-    const geopoint = new Parse.GeoPoint(Location.coordinates.lat, Location.coordinates.lng);
+    const geopoint = new Parse.GeoPoint(Location.coordinates?.lat, Location.coordinates?.lng);
 
 
 
@@ -211,7 +211,7 @@ export const StudentData = () => {
       formatter: function (item) {
         if (item) {
           return (
-            item.latitude + ", " + item.longitude);}}
+            item.latitude && item.longitude ? item.latitude + ", " + item.longitude : " ");}}
     },
     
     {

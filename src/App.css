@@ -363,6 +363,8 @@ input {
   background-color: #080808;
   color: white;
   padding: 20px;
+  bottom: 0;
+  position: relative;
 
 }
 
@@ -402,4 +404,11 @@ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 33%);
 .card-body{
   padding: 10px 24px 14px 24px;
     position: relative;
+}
+
+.about{
+  height: 491px;
+}
+.contact{
+  height: 491px;
 }
