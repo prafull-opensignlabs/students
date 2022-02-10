@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Parse from "parse";
 import "./App.css";
 import BootstrapTable from "react-bootstrap-table-next";
-// import "./fresh-bootstrap-table.css";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useGeoLocation } from "./useGeoLocation";
@@ -263,15 +262,6 @@ export const StudentData = () => {
 
   // const submit = (event) => {
   //   event.preventDefault();
-  //   // if (!newStudentTitle || !newStudentEmail || !newStudentAge) {
-  //   //     alert("Title or Description cannot be blank");
-  //   // }
-
-  //       createStudent(newStudentTitle, newStudentEmail, newStudentAge);
-  //       setNewStudentTitle("");
-  //       setNewStudentEmail("");
-  //       setNewStudentAge("");
-
   // }
   return (
     <>
@@ -288,7 +278,7 @@ export const StudentData = () => {
             <div className="card-body no-padding height-9">
 
               {/* Inputs */}
-              <form className="form-inline">
+              <form className="form-inline" onSubmit={createStudent}>
                 <input
                   value={newStudentFirstName}
                   onChange={(event) =>
@@ -296,6 +286,7 @@ export const StudentData = () => {
                   }
                   placeholder="First Name"
                   size="large"
+                  required 
                 />
                 <input
                   value={newStudentLastName}
@@ -304,6 +295,7 @@ export const StudentData = () => {
                   }
                   placeholder="Last Name"
                   size="large"
+                  required
                 />
 
                 <input
@@ -311,6 +303,7 @@ export const StudentData = () => {
                   onChange={(event) => setNewStudentEmail(event.target.value)}
                   placeholder="Student Email"
                   size="large"
+                  required
                 />
 
                 <input
@@ -318,6 +311,7 @@ export const StudentData = () => {
                   onChange={(event) => setNewStudentAge(event.target.value)}
                   placeholder="Student Age"
                   size="large"
+                  required
                 />
 
                 <input
@@ -325,33 +319,38 @@ export const StudentData = () => {
                   onChange={(event) => setNewStudentAddress(event.target.value)}
                   placeholder="Student Address"
                   size="large"
+                  required
                 />
                 <input
                   value={newStudentZipcode}
                   onChange={(event) => setnewStudentZipcode(event.target.value)}
                   placeholder="Student Zipcode"
                   size="large"
+                  required
                 />
                 <input
                   value={newStudentCity}
                   onChange={(event) => setnewStudentCity(event.target.value)}
                   placeholder="Student City"
                   size="large"
+                  required
                 />
                 <input
                   value={newStudentState}
                   onChange={(event) => setnewStudentState(event.target.value)}
                   placeholder="Student State"
                   size="large"
+                  required
                 />
                  <input
                   value={newStudentDateofJoin}
                   onChange={(event) => setNewStudentDateofJoin(event.target.value)}
                   placeholder="Date of Join (mm/dd/yyyy)"
                   size="large"
+                  required
                 />
               </form>
-              <button type="button" onClick={createStudent} className="add_btn">
+              <button type="submit" className="add_btn">
                 Add
               </button>
             </div>
