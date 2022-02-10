@@ -278,7 +278,7 @@ export const StudentData = () => {
             <div className="card-body no-padding height-9">
 
               {/* Inputs */}
-              <form className="form-inline" onSubmit={createStudent}>
+              <form className="form-inline" >
                 <input
                   value={newStudentFirstName}
                   onChange={(event) =>
@@ -350,7 +350,7 @@ export const StudentData = () => {
                   required
                 />
               </form>
-              <button type="submit" className="add_btn">
+              <button type="submit" onClick={createStudent} className="add_btn">
                 Add
               </button>
             </div>
