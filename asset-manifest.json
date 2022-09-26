@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/students/static/css/main.1ba81ab8.chunk.css",
+    "main.js": "/students/static/js/main.c0c64134.chunk.js",
+    "main.js.map": "/students/static/js/main.c0c64134.chunk.js.map",
+    "runtime-main.js": "/students/static/js/runtime-main.13670d79.js",
+    "runtime-main.js.map": "/students/static/js/runtime-main.13670d79.js.map",
+    "static/css/2.e1a41564.chunk.css": "/students/static/css/2.e1a41564.chunk.css",
+    "static/js/2.641b82be.chunk.js": "/students/static/js/2.641b82be.chunk.js",
+    "static/js/2.641b82be.chunk.js.map": "/students/static/js/2.641b82be.chunk.js.map",
+    "static/js/3.52ff145f.chunk.js": "/students/static/js/3.52ff145f.chunk.js",
+    "static/js/3.52ff145f.chunk.js.map": "/students/static/js/3.52ff145f.chunk.js.map",
+    "index.html": "/students/index.html",
+    "static/css/2.e1a41564.chunk.css.map": "/students/static/css/2.e1a41564.chunk.css.map",
+    "static/css/main.1ba81ab8.chunk.css.map": "/students/static/css/main.1ba81ab8.chunk.css.map",
+    "static/js/2.641b82be.chunk.js.LICENSE.txt": "/students/static/js/2.641b82be.chunk.js.LICENSE.txt",
+    "static/media/NXG_logo.e6e9488e.png": "/students/static/media/NXG_logo.e6e9488e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13670d79.js",
+    "static/css/2.e1a41564.chunk.css",
+    "static/js/2.641b82be.chunk.js",
+    "static/css/main.1ba81ab8.chunk.css",
+    "static/js/main.c0c64134.chunk.js"
+  ]
+}
